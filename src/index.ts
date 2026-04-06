@@ -4,6 +4,7 @@ import recordRoutes from './routes/recordroutes';
 import dashboardRoutes from './routes/dashboardroutes';
 import { errorHandler } from './middleware/globalerrorHandler';
 import authRoutes from './routes/authroutes';
+import rateLimit from 'express-rate-limit';
 
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
