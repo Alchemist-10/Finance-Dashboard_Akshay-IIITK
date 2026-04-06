@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ESNext",                          /* Latest ECMAScript version */
+    "module": "NodeNext",                        /* Standard for modern Node.js */
+    "moduleResolution": "NodeNext",
+    "rootDir": "./src",                          /* Where your .ts files live */
+    "outDir": "./dist",                         /* Where your .js files will be built */
+    
+    /* Strictness */
+    "strict": true,                              /* Enable all strict type-checking options */
+    "noImplicitAny": true,
+    "skipLibCheck": true,                        /* Skip type checking of declaration files */
+    "forceConsistentCasingInFileNames": true,
+    
+    /* Interop */
+    "esModuleInterop": true,                     /* Allows importing CommonJS modules as ES modules */
+    "resolveJsonModule": true,                   /* Allows importing .json files */
+    
+    /* Metadata */
+    "experimentalDecorators": true,              /* Useful for some backend frameworks */
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src/**/*"],                       /* Tell TS to look only in src */
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
