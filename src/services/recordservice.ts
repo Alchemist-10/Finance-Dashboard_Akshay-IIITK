@@ -1,7 +1,6 @@
 // src/services/recordService.ts
-import { PrismaClient, TransactionType } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { TransactionType } from '@prisma/client';
+import { prisma } from '../db';
 
 export class RecordService {
   static async createRecord(userId: string, data: any) {

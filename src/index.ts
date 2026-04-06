@@ -3,6 +3,7 @@ import userRoutes from './routes/userroutes';
 import recordRoutes from './routes/recordroutes';
 import dashboardRoutes from './routes/dashboardroutes';
 import { errorHandler } from './middleware/globalerrorHandler';
+import authRoutes from './routes/authroutes';
 
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,8 @@ app.use(express.json());
 app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({ status: 'Server is running normally' });
 });
+//since it is public ( no token needed )
+app.use('/api/auth', authRoutes);
 
 app.use('/api/users', userRoutes);
 app.use('/api/records', recordRoutes);
