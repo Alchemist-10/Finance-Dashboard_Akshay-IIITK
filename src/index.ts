@@ -10,11 +10,21 @@ const app: Express = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, 
+  standardHeaders: true,
+  legacyHeaders: false, 
+  message: {
+    error: 'Too many requests from this IP, please try again after 15 minutes.'
+  }
+});
 
 // Health check route
 app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({ status: 'Server is running normally' });
 });
+app.use('/api', apiLimiter);
 //since it is public ( no token needed )
 app.use('/api/auth', authRoutes);
 
